@@ -123,7 +123,8 @@ toco \
 
 ## 3: Convert Model to TFLite Format:
 
-```python toco \
+```python 
+toco \
   --input_file=tf_files/retrained_graph.pb \
   --output_file=tf_files/optimized_graph.lite \
   --input_format=TENSORFLOW_GRAPHDEF \
