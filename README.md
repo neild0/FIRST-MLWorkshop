@@ -154,6 +154,12 @@ Open the app:
 
 Make sure to go to Xcode>Preferences and sign in to be able to connect your phone and test the application.
 
+  *  Click on the tflite_photos_example file on the left, and name your Bundle Identifier something unique, for example: com.[your name]
+  * Click on automatically manage signing
+  * Go to the Pods folder underneath Products, and select and hit delete to get rid of the red tflite_camera files, and do the same for the red tflite_camera_example file under Frameworks
+  
+Finally, you should be able to run your app!
+
 ___________________________
 ## 4.2: For Android:
 Set up Device: https://developer.android.com/studio/debug/dev-options#enable
