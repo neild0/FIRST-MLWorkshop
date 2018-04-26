@@ -118,7 +118,11 @@ toco \
   --output_format=TENSORFLOW_GRAPHDEF \
   --input_shape=1,224,224,3 \
   --input_array=input \
-  --output_array=final_result
+  --output_array=final_result \
+  --mean_value=128 \
+  --std_value=128 \
+  --default_range_min=0  \
+  --default_ranges_max=6
   ```
 
 ## 3: Convert Model to TFLite Format:
@@ -133,8 +137,11 @@ toco \
   --input_array=input \
   --output_array=final_result \
   --inference_type=FLOAT \
-  --input_type=FLOAT
-  
+  --input_type=FLOAT \
+  --mean_value=128 \
+  --std_value=128 \
+  --default_range_min=0  \
+  --default_ranges_max=6
   ```
 ___________________________
 ## 4.1: For IOS:
