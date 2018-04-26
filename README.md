@@ -12,6 +12,8 @@ All that you need is:
    * Android Studio for Android 
    * Cord to connect the phone and computer
 
+______________________________________________________________________________________________________________________________
+
 
 ## Step #0: Setup 
 
@@ -30,7 +32,9 @@ Download tensorflow following the instructions at https://www.tensorflow.org/ins
 Download google_images_download, if you would like to train the model on the classes that you want it to detect:
 
 `pip install google_images_download`
+
 ______________________________________________________________________________________________________________________________
+
 
 # Part 1: Developing ML Classification Algorithm:
 
