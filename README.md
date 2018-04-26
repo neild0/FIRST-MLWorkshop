@@ -53,7 +53,7 @@ Check the images:
 
 
 
-## 5. Set up variables for training:
+## 4. Set up variables for training:
 
 `ARCHITECTURE="mobilenet_0.50_224"`
 
@@ -62,7 +62,7 @@ Check the images:
 If you receive an error stating: `TensorBoard attempted to bind to port 6006, but it was already in use` kill the existing TensorBoard instance using `pkill -f "tensorboard"`
 
 
-## 6. Time to Initiate Machine Learning!
+## 5. Time to Initiate Machine Learning!
 
 Start the training of the model using:
 
@@ -82,11 +82,11 @@ python -m scripts.retrain \
 If you have time, and want to increase the accuracy of you model, change `--how_many_training_steps=X` to a higher number (4000 is probably the highest you need to go).
 
 
-## 7. Watch Machine Learning in Action:
+## 6. Watch Machine Learning in Action:
 
 To see the real time learning behind the algorithm, go to http://0.0.0.0:6006/ on your computer!
 
-## 8. Test the Accuracy of Your Algorithm:
+## 7. Test the Accuracy of Your Algorithm:
 ```python
 python -m scripts.label_image \
     --graph=tf_files/retrained_graph.pb  \
@@ -107,6 +107,8 @@ ________________________________________________________________________________
 
 `pip install PILLOW`
 
+If IOS: `sudo gem install cocoapods`
+
 ## 2: Optimize model using TensorFlow Lite Optimizing Converter (TOCO):
 ```python
 toco \
@@ -121,16 +123,44 @@ toco \
 
 ## 3: Convert Model to TFLite Format:
 
-python ``` toco \
+```python toco \
   --input_file=tf_files/retrained_graph.pb \
   --output_file=tf_files/optimized_graph.lite \
   --input_format=TENSORFLOW_GRAPHDEF \
   --output_format=TFLITE \
-  --input_shape=1,${IMAGE_SIZE},${IMAGE_SIZE},3 \
+  --input_shape=1,224,224,3 \
   --input_array=input \
   --output_array=final_result \
   --inference_type=FLOAT \
   --input_type=FLOAT
   
   ```
-     
+___________________________
+## 4.1: For IOS:
+`cd ios/tflite`
+
+Update Pods:
+`pod update`
+
+Copy the trained models into the app:
+`cd ../..`
+`cp tf_files/optimized_graph.lite ios/tflite/data/graph.lite`
+
+Copy the labels into the app:
+`cp tf_files/retrained_labels.txt ios/tflite/data/labels.txt`
+Open the app:
+`open ios/tflite/tflite_camera_example.xcworkspace`
+
+Make sure to go to Xcode>Preferences and sign in to be able to connect your phone and test the application.
+
+___________________________
+## 4.2: For Android:
+Set up Device: https://developer.android.com/studio/debug/dev-options#enable
+
+Copy the labels and models into the app:
+`cp tf_files/optimized_graph.lite android/tflite/app/src/main/assets/graph.lite`
+`cp tf_files/retrained_labels.txt android/tflite/app/src/main/assets/labels.txt`
+
+Open Android Studio>Open an existing Android Studio project, open FIRST-MLWorkshop/android/tflite, and click 'OK' for Gradle Sync.
+
+Then run the app!
