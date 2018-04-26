@@ -62,7 +62,8 @@ If you receive an error stating: `TensorBoard attempted to bind to port 6006, bu
 
 Start the training of the model using:
 
-`python -m scripts.retrain \
+```python
+python -m scripts.retrain \
   --bottleneck_dir=tf_files/bottlenecks \
   --how_many_training_steps=1000 \
   --model_dir=tf_files/models/ \
@@ -72,6 +73,8 @@ Start the training of the model using:
   --architecture="${ARCHITECTURE}" \
   --image_dir=downloads`
   
+  ```
+  
 If you have time, and want to increase the accuracy of you model, change `--how_many_training_steps=X` to a higher number (4000 is probably the highest you need to go).
 
 
@@ -80,10 +83,11 @@ If you have time, and want to increase the accuracy of you model, change `--how_
 To see the real time learning behind the algorithm, go to http://0.0.0.0:6006/ on your computer!
 
 ## 7. Test the Accuracy of Your Algorithm:
-
-`python -m scripts.label_image \
+```python
+python -m scripts.label_image \
     --graph=tf_files/retrained_graph.pb  \
-    --image=(path_to_image) `
+    --image=(path_to_image) 
+   ```
     
 For example:
 
