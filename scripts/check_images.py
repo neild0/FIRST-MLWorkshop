@@ -13,7 +13,7 @@ for filename in os.listdir(img_dir):
             imagepath = os.path.join(filepath,imagename)
             try :
                 with Image.open(imagepath) as im:
-                 #    print('ok')
+                     n=1
             except :
                 print(imagepath)
                 os.remove(imagepath)
