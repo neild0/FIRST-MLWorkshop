@@ -10,7 +10,10 @@ for filename in os.listdir(img_dir):
         os.remove(filepath)
     else:
         for imagename in os.listdir(filepath):
+            
             imagepath = os.path.join(filepath,imagename)
+            if len(imagepath) > 220:
+                os.remove(imagepath)
             try :
                 with Image.open(imagepath) as im:
                      n=1
