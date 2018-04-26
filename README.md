@@ -27,7 +27,7 @@ ________________________________________________________________________________
 
 ## 1. Clone this directory onto your computer: 
 
-`git clone https://github.com/QuantumTCode/FIRST-ML`
+`git clone https://github.com/QuantumTCode/FIRST-MLWorkshop`
 
 
 
