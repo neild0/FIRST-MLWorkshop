@@ -358,6 +358,7 @@ def create_bottleneck_file(bottleneck_path, image_lists, label_name, index,
                            decoded_image_tensor, resized_input_tensor,
                            bottleneck_tensor):
   """Create a single bottleneck file."""
+  
   tf.logging.info('Creating bottleneck at ' + bottleneck_path)
   image_path = get_image_path(image_lists, label_name, index,
                               image_dir, category)
@@ -372,11 +373,10 @@ def create_bottleneck_file(bottleneck_path, image_lists, label_name, index,
     raise RuntimeError('Error during processing file %s (%s)' % (image_path,
                                                                  str(e)))
   bottleneck_string = ','.join(str(x) for x in bottleneck_values)
-  try:
-    with open(bottleneck_path, 'w') as bottleneck_file:
-      bottleneck_file.write(bottleneck_string)
-  except:
-    print("failed")
+  bottleneck_path = (bottleneck_path[:200] + '..') if len(bottleneck_path) > 75 else bottleneck_path
+  with open(bottleneck_path, 'w') as bottleneck_file:
+    bottleneck_file.write(bottleneck_string)
+ 
 
 
 def get_or_create_bottleneck(sess, image_lists, label_name, index, image_dir,
@@ -419,11 +419,9 @@ def get_or_create_bottleneck(sess, image_lists, label_name, index, image_dir,
                            image_dir, category, sess, jpeg_data_tensor,
                            decoded_image_tensor, resized_input_tensor,
                            bottleneck_tensor)
-  try:
-    with open(bottleneck_path, 'r') as bottleneck_file:
-      bottleneck_string = bottleneck_file.read()
-  except:
-    print("failed")
+
+  with open(bottleneck_path, 'r') as bottleneck_file:
+    bottleneck_string = bottleneck_file.read()
   did_hit_error = False
   try:
     bottleneck_values = [float(x) for x in bottleneck_string.split(',')]
