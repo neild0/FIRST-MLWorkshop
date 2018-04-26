@@ -47,9 +47,13 @@ So an example would be:
 
 While only 5 classes are downloaded above, you can add more (might decrease accuracy of classification)
 
+Check the images: 
+
+`python scripts/check_images.py`
 
 
-## 4. Set up variables for training:
+
+## 5. Set up variables for training:
 
 `ARCHITECTURE="mobilenet_0.50_224"`
 
@@ -58,7 +62,7 @@ While only 5 classes are downloaded above, you can add more (might decrease accu
 If you receive an error stating: `TensorBoard attempted to bind to port 6006, but it was already in use` kill the existing TensorBoard instance using `pkill -f "tensorboard"`
 
 
-## 5. Time to Initiate Machine Learning!
+## 6. Time to Initiate Machine Learning!
 
 Start the training of the model using:
 
@@ -78,11 +82,11 @@ python -m scripts.retrain \
 If you have time, and want to increase the accuracy of you model, change `--how_many_training_steps=X` to a higher number (4000 is probably the highest you need to go).
 
 
-## 6. Watch Machine Learning in Action:
+## 7. Watch Machine Learning in Action:
 
 To see the real time learning behind the algorithm, go to http://0.0.0.0:6006/ on your computer!
 
-## 7. Test the Accuracy of Your Algorithm:
+## 8. Test the Accuracy of Your Algorithm:
 ```python
 python -m scripts.label_image \
     --graph=tf_files/retrained_graph.pb  \
