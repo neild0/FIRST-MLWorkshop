@@ -153,25 +153,24 @@ toco \
   ```
 ___________________________
 ## 4.1: For IOS:
-`cd ios/tflite`
+`cd ios/camera`
 
 Update Pods:
 `pod update`
 
 Copy the trained models into the app:
 `cd ../..`
-`cp tf_files/optimized_graph.lite ios/tflite/data/graph.lite`
+`cp tf_files/retrained_graph.pb ios/camera/data/retrained_graph.pb`
 
 Copy the labels into the app:
-`cp tf_files/retrained_labels.txt ios/tflite/data/labels.txt`
+`cp tf_files/retrained_labels.txt ios/camera/data/retrained_labels.txt`
 Open the app:
-`open ios/tflite/tflite_photos_example.xcworkspace`
+`open ios/camera/tf_camera_example.xcworkspace`
 
 Make sure to go to Xcode>Preferences and sign in to be able to connect your phone and test the application.
 
   *  Click on the tflite_photos_example file on the left, and name your Bundle Identifier something unique, for example: com.[your name]
   * Click on automatically manage signing
-  * Go to the Pods folder underneath Products, and select and hit delete to get rid of the red tflite_camera files, and do the same for the red tflite_camera_example file under Frameworks
   
 Finally, you should be able to run your app!
 
