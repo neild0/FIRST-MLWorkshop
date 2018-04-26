@@ -372,8 +372,11 @@ def create_bottleneck_file(bottleneck_path, image_lists, label_name, index,
     raise RuntimeError('Error during processing file %s (%s)' % (image_path,
                                                                  str(e)))
   bottleneck_string = ','.join(str(x) for x in bottleneck_values)
-  with open(bottleneck_path, 'w') as bottleneck_file:
-    bottleneck_file.write(bottleneck_string)
+  try:
+    with open(bottleneck_path, 'w') as bottleneck_file:
+      bottleneck_file.write(bottleneck_string)
+  except:
+    print("failed")
 
 
 def get_or_create_bottleneck(sess, image_lists, label_name, index, image_dir,
