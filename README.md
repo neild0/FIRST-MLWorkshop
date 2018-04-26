@@ -99,14 +99,38 @@ For example:
     --graph=tf_files/retrained_graph.pb  \
     --image=downloads/car/car.png`
   
-  
-  
-
-
-
-
 ______________________________________________________________________________________________________________________________
 
+# Part 2: Implementing ML Algorithm on Phone:
 
+## 1. Setup:
 
+`pip install PILLOW`
+
+## 2: Optimize model using TensorFlow Lite Optimizing Converter (TOCO):
+```python
+toco \
+  --input_file=tf_files/retrained_graph.pb \
+  --output_file=tf_files/optimized_graph.pb \
+  --input_format=TENSORFLOW_GRAPHDEF \
+  --output_format=TENSORFLOW_GRAPHDEF \
+  --input_shape=1,224,224,3 \
+  --input_array=input \
+  --output_array=final_result
+  ```
+
+## 3: Convert Model to TFLite Format:
+
+python ``` toco \
+  --input_file=tf_files/retrained_graph.pb \
+  --output_file=tf_files/optimized_graph.lite \
+  --input_format=TENSORFLOW_GRAPHDEF \
+  --output_format=TFLITE \
+  --input_shape=1,${IMAGE_SIZE},${IMAGE_SIZE},3 \
+  --input_array=input \
+  --output_array=final_result \
+  --inference_type=FLOAT \
+  --input_type=FLOAT
+  
+  ```
      
