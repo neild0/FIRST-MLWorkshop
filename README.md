@@ -11,7 +11,8 @@ All that you need is:
    * Xcode for IOS (only on Mac)
    * Android Studio for Android 
    * Cord to connect the phone and computer
-______________________________________________________________________________________________________________________________
+
+
 ## Step #0: Setup 
 
 Download Python (if you don't already have it)
