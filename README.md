@@ -16,6 +16,14 @@ ________________________________________________________________________________
 
 Download Python (if you don't already have it)
 
+ONLY Mac Users Developing for IOS: 
+
+python2: `sudo pip install --upgrade \
+ https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.4.0-py-none-any.whl`
+
+python 3: `sudo pip3 install --upgrade \
+ https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.4.0-py3-none-any.whl`
+ 
 Download tensorflow following the instructions at https://www.tensorflow.org/install/ (the CPU version will be sufficient for this workshop)
 
 Download google_images_download, if you would like to train the model on the classes that you want it to detect:
