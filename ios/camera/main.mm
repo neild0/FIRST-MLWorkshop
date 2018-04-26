@@ -1,4 +1,4 @@
-// Copyright 2017 The TensorFlow Authors. All Rights Reserved.
+// Copyright 2015 Google Inc. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,8 +14,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CameraExampleAppDelegate : UIResponder<UIApplicationDelegate>
+#import "CameraExampleAppDelegate.h"
 
-@property(strong, nonatomic) UIWindow* window;
+int main(int argc, char *argv[]) {
+  int retVal = 0;
 
-@end
+  @autoreleasepool {
+    retVal = UIApplicationMain(
+        argc, argv, nil, NSStringFromClass([CameraExampleAppDelegate class]));
+  }
+  return retVal;
+}
