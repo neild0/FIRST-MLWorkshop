@@ -39,11 +39,11 @@ ________________________________________________________________________________
 
 ## 3. Download the classes of images that you would like the algorithm to detect:
 
-`googleimagesdownload -f png -k "[Class 1], [Class 2], [Class 3], [Class 4], [Class 5]" `
+`googleimagesdownload -f jpg -k "[Class 1], [Class 2], [Class 3], [Class 4], [Class 5]" `
 
 So an example would be:
 
-`googleimagesdownload -f png -k "train, car, bus, racecar, motorcycle"`
+`googleimagesdownload -f jpg -k "train, car, bus, racecar, motorcycle"`
 
 While only 5 classes are downloaded above, you can add more (might decrease accuracy of classification)
 
