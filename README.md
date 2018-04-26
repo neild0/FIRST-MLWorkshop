@@ -150,7 +150,7 @@ Copy the trained models into the app:
 Copy the labels into the app:
 `cp tf_files/retrained_labels.txt ios/tflite/data/labels.txt`
 Open the app:
-`open ios/tflite/tflite_camera_example.xcworkspace`
+`open ios/tflite/tflite_photos_example.xcworkspace`
 
 Make sure to go to Xcode>Preferences and sign in to be able to connect your phone and test the application.
 
