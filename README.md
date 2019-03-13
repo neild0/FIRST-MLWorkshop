@@ -1,4 +1,4 @@
-# FIRST-MLWorkshop - Neil Deshmukh
+# FIRST-MLWorkshop
 This is the workshop github for the 'Using Machine Learning to Build an Image Classification App' presented by Neil Deshmukh at FIRST Detroit on April 26th at 1:30 - 3:30 pm.
 
 In this workshop, we will first train a ML algorithm to classify between any image classes that we give it, and then secondly integrate it into an application. 
